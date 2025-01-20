@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurt the Criterion</title>
+    <!-- Add Favicon with blue background and red banjo -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%231e1b4b%22/><text x=%2250%22 y=%2265%22 font-size=%2280%22 text-anchor=%22middle%22 fill=%22%23ef4444%22>🪕</text></svg>">
     <link href="./css/output.css" rel="stylesheet">
     <!-- Adding a classic font -->
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -19,11 +21,20 @@
 
     <main class="container mx-auto px-6 py-4 flex-grow flex flex-col">
         <div class="bg-indigo-950/70 p-6 border-2 border-red-500 shadow-lg h-full flex flex-col">
-            <h1 class="text-4xl font-bold text-red-500 mb-4 tracking-wider text-glow-lg">Welcome to My Amazing Music Page</h1>
-            <p class="text-red-300 text-lg mb-4 text-glow">Where we're from, the birds sing a pretty song and there's always music in the air.</p>
-            
+            <!-- Update the title section -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div>
+                    <h1 class="text-4xl font-bold text-red-500 tracking-wider text-glow-lg">Welcome to My Amazing Music Page</h1>
+                    <p class="text-red-300 text-lg text-glow">Where we're from, the birds sing a pretty song and there's always music in the air.</p>
+                </div>
+                <div class="mt-4 md:mt-0 border-l border-red-500 pl-4 pb-4">
+                    <a href='https://www.free-counters.org/'>https://www.free-counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=21f6806797dbd4c672122416f7ea8814c7ce0742'></script>
+                    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1290494/t/10"></script>
+                </div>
+            </div>
+
             <!-- Social Media Links -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
                 <a href="https://www.youtube.com/@clawhammerkurt" target="_blank" class="retro-button flex items-center justify-center gap-2">
                     <i class="fab fa-youtube text-xl"></i>
                     YouTube
@@ -51,11 +62,11 @@
             </div>
 
             <!-- Latest Content Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
                 <!-- Latest Release -->
                 <div class="border border-red-500 p-4 flex flex-col">
                     <h2 class="text-2xl text-red-500 mb-2 text-glow">Latest Release</h2>
-                    <div class="flex-grow min-h-[380px]">
+                    <div class="flex-grow min-h-[300px] sm:min-h-[380px]">
                         <iframe 
                             src="https://open.spotify.com/embed/album/16cSXGPSNmWoW0KyxM4TMg" 
                             width="100%" 
@@ -63,7 +74,7 @@
                             frameborder="0" 
                             allow="encrypted-media"
                             class="rounded-xl"
-                            style="min-height: 380px"
+                            style="min-height: 300px; @media (min-width: 640px) { min-height: 380px; }"
                         ></iframe>
                     </div>
                     <div class="mt-2 text-red-300">
@@ -82,7 +93,7 @@
             </div>
 
             <div class="border border-red-500 p-2">
-                <marquee class="text-red-500 text-glow">🎵 New releases on the way! * * * Hundreds of epic covers! * * * Follow on links above to stay tuned! 🎵</marquee>
+                <marquee class="text-red-500 text-glow">🎵 I'm a software engineer making music as a hobby and I do all songwriting, instrumentals and production myself and I'm still learning so please go easy on me! * * * Follow me on the links above to stay tuned! 🎵</marquee>
             </div>
         </div>
     </main>
@@ -92,6 +103,8 @@
 
     <script src="./js/components.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/counter.js"></script>
+    <script src="./js/chat.js"></script>
     <script>
         // Display latest blog post
         function displayLatestPost() {
@@ -121,6 +134,12 @@
 
         // Initialize latest post when page loads
         document.addEventListener('DOMContentLoaded', displayLatestPost);
+
+        // Initialize chat after components load
+        setTimeout(() => {
+            const chat = new Chat();
+            console.log('Chat initialized');
+        }, 500);
     </script>
 </body>
 </html> 

@@ -1,16 +1,23 @@
 <header class="bg-gradient-to-b from-indigo-950/90 via-blue-950/80 to-indigo-900/70 backdrop-blur-sm border-b-4 border-red-500/80 shadow-lg">
     <nav class="container mx-auto px-6 py-6">
-        <div class="flex items-center justify-between">
-            <div class="text-2xl font-bold tracking-wider neon-sign">
-                <span class="neon-flicker-1">Kurt</span>
-                <span class="mx-2">the</span>
-                <span class="neon-flicker-2">Criterion</span>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold tracking-wider neon-sign">
+                    <span class="neon-flicker-1">Kurt</span>
+                    <span class="mx-2">the</span>
+                    <span class="neon-flicker-2">Criterion</span>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden retro-button">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="retro-button">Home</a>
-                <a href="releases.html" class="retro-button">Releases</a>
-                <a href="covers.html" class="retro-button">Covers</a>
-                <a href="blog.html" class="retro-button">Blog</a>
+            <!-- Navigation Links -->
+            <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-8">
+                <a href="index.html" class="retro-button text-center">Home</a>
+                <a href="releases.html" class="retro-button text-center">Releases</a>
+                <a href="covers.html" class="retro-button text-center">Covers</a>
+                <a href="blog.html" class="retro-button text-center">Blog</a>
             </div>
         </div>
     </nav>
