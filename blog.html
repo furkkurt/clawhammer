@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Kurt the Criterion</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col bg-cover bg-center bg-fixed font-['VT323']" style="background-image: url('./assets/bg.jpeg');">
+    <!-- Dark overlay with dreamy blue tint -->
+    <div class="fixed inset-0 bg-indigo-950/70 backdrop-blur-sm -z-10"></div>
+    
+    <!-- Header component -->
+    <div id="header-component"></div>
+
+    <main class="container mx-auto px-6 py-4 flex-grow flex flex-col">
+        <div class="bg-indigo-950/80 p-6 border-2 border-red-500 shadow-lg h-full">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-4xl font-bold text-red-500 tracking-wider text-glow-lg">Blog</h1>
+                <button onclick="showPasswordPrompt()" class="retro-button">
+                    <i class="fas fa-plus mr-2"></i>New Post
+                </button>
+            </div>
+
+            <!-- Password Modal -->
+            <div id="passwordModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center">
+                <div class="bg-indigo-950 p-6 border-2 border-red-500 rounded-xl max-w-md w-full mx-4">
+                    <h2 class="text-2xl text-red-500 mb-4 text-glow">Enter Password</h2>
+                    <input type="password" id="passwordInput" 
+                           class="w-full bg-indigo-900 text-red-300 border border-red-500 rounded p-2 mb-4 focus:outline-none focus:border-red-300">
+                    <div class="flex justify-end gap-4">
+                        <button onclick="closePasswordModal()" class="retro-button">Cancel</button>
+                        <button onclick="checkPassword()" class="retro-button">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Post Form -->
+            <div id="newPostForm" class="hidden mb-8">
+                <div class="border border-red-500 p-4 rounded-xl">
+                    <h2 class="text-2xl text-red-500 mb-4 text-glow">New Blog Post</h2>
+                    <input type="text" id="postTitle" placeholder="Post Title" 
+                           class="w-full bg-indigo-900 text-red-300 border border-red-500 rounded p-2 mb-4 focus:outline-none focus:border-red-300">
+                    <textarea id="postContent" rows="6" placeholder="Write your post here..." 
+                            class="w-full bg-indigo-900 text-red-300 border border-red-500 rounded p-2 mb-4 focus:outline-none focus:border-red-300"></textarea>
+                    <div class="flex justify-end gap-4">
+                        <button onclick="cancelPost()" class="retro-button">Cancel</button>
+                        <button onclick="submitPost()" class="retro-button">Publish</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Posts Container -->
+            <div id="blogPosts" class="space-y-6">
+                <!-- Posts will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer component -->
+    <div id="footer-component"></div>
+
+    <script src="./js/components.js"></script>
+    <script>
+        // Password handling
+        function showPasswordPrompt() {
+            document.getElementById('passwordModal').classList.remove('hidden');
+            document.getElementById('passwordInput').focus();
+        }
+
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.add('hidden');
+            document.getElementById('passwordInput').value = '';
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === '123') {
+                closePasswordModal();
+                showNewPostForm();
+            } else {
+                alert('Incorrect password');
+            }
+        }
+
+        // Post form handling
+        function showNewPostForm() {
+            document.getElementById('newPostForm').classList.remove('hidden');
+        }
+
+        function cancelPost() {
+            document.getElementById('newPostForm').classList.add('hidden');
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+        }
+
+        function submitPost() {
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            
+            if (!title || !content) {
+                alert('Please fill in both title and content');
+                return;
+            }
+
+            const date = new Date().toLocaleDateString();
+            const post = { title, content, date };
+            
+            // Get existing posts from localStorage
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            posts.unshift(post); // Add new post at the beginning
+            localStorage.setItem('blogPosts', JSON.stringify(posts));
+            
+            displayPosts();
+            cancelPost();
+        }
+
+        // Display posts
+        function displayPosts() {
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            const container = document.getElementById('blogPosts');
+            
+            container.innerHTML = posts.map(post => `
+                <article class="border border-red-500 p-4 rounded-xl">
+                    <h2 class="text-2xl text-red-500 mb-2 text-glow">${post.title}</h2>
+                    <p class="text-red-300 text-sm mb-4">${post.date}</p>
+                    <div class="text-red-300 whitespace-pre-wrap">${post.content}</div>
+                </article>
+            `).join('');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', displayPosts);
+
+        // Handle Enter key in password input
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html> 

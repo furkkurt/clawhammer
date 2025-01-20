@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releases - Kurt the Criterion</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col bg-cover bg-center bg-fixed font-['VT323']" style="background-image: url('./assets/bg.jpeg');">
+    <!-- Dark overlay with blue tint -->
+    <div class="fixed inset-0 bg-blue-950 bg-opacity-60 -z-10"></div>
+    
+    <!-- Header component -->
+    <div id="header-component"></div>
+
+    <main class="container mx-auto px-6 py-4 flex-grow flex flex-col">
+        <div class="bg-blue-950/80 p-6 border-2 border-red-500 shadow-lg h-full">
+            <h1 class="text-4xl font-bold text-red-500 mb-6 tracking-wider text-glow-lg">Releases</h1>
+
+            <!-- Releases Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- The Other Line EP -->
+                <div class="border border-red-500 p-4">
+                    <h2 class="text-2xl text-red-500 mb-4 text-glow">The Other Line</h2>
+                    <div class="min-h-[380px]">
+                        <iframe 
+                            src="https://open.spotify.com/embed/album/16cSXGPSNmWoW0KyxM4TMg" 
+                            width="100%" 
+                            height="380" 
+                            frameborder="0" 
+                            allow="encrypted-media"
+                            class="rounded-xl"
+                        ></iframe>
+                    </div>
+                    <div class="mt-4 text-red-300">
+                        <p class="text-sm text-glow-sm">EP • 2025 • 4 songs</p>
+                    </div>
+                </div>
+
+                <!-- But It Can Happen Album -->
+                <div class="border border-red-500 p-4">
+                    <h2 class="text-2xl text-red-500 mb-4 text-glow">But It Can Happen</h2>
+                    <div class="min-h-[380px]">
+                        <iframe 
+                            src="https://open.spotify.com/embed/album/5ZJ7O3XvjVZFPpTk67NVnn" 
+                            width="100%" 
+                            height="380" 
+                            frameborder="0" 
+                            allow="encrypted-media"
+                            class="rounded-xl"
+                        ></iframe>
+                    </div>
+                    <div class="mt-4 text-red-300">
+                        <p class="text-sm text-glow-sm">Album • 2024 • 10 songs, 22 min</p>
+                    </div>
+                </div>
+
+                <!-- Sam Hall Album -->
+                <div class="border border-red-500 p-4">
+                    <h2 class="text-2xl text-red-500 mb-4 text-glow">Sam Hall</h2>
+                    <div class="min-h-[380px]">
+                        <iframe 
+                            src="https://open.spotify.com/embed/album/1w6h3eswzCzBGwYFVdhbNa" 
+                            width="100%" 
+                            height="380" 
+                            frameborder="0" 
+                            allow="encrypted-media"
+                            class="rounded-xl"
+                        ></iframe>
+                    </div>
+                    <div class="mt-4 text-red-300">
+                        <p class="text-sm text-glow-sm">Album • 2023 • 7 songs, 16 min</p>
+                    </div>
+                </div>
+
+                <!-- Singles Section -->
+                <div class="border border-red-500 p-4">
+                    <h2 class="text-2xl text-red-500 mb-4 text-glow">Singles</h2>
+                    <div class="space-y-4">
+                        <!-- The Owl Single -->
+                        <div class="min-h-[152px]">
+                            <iframe 
+                                src="https://open.spotify.com/embed/album/2UEtMSSrMkjLx6x8tMjc7z" 
+                                width="100%" 
+                                height="152" 
+                                frameborder="0" 
+                                allow="encrypted-media"
+                                class="rounded-xl"
+                            ></iframe>
+                        </div>
+                        <!-- Old and Gray Single -->
+                        <div class="min-h-[152px]">
+                            <iframe 
+                                src="https://open.spotify.com/embed/album/6hcdw6UJ29qlImnSLWKi1W" 
+                                width="100%" 
+                                height="152" 
+                                frameborder="0" 
+                                allow="encrypted-media"
+                                class="rounded-xl"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-red-300">
+                        <p class="text-sm text-glow-sm">Singles Collection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer component -->
+    <div id="footer-component"></div>
+
+    <script src="./js/components.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html> 

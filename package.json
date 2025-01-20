@@ -1,0 +1,11 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "My website using TailwindCSS",
+  "scripts": {
+    "build": "tailwindcss -i ./css/styles.css -o ./css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+} 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurt the Criterion</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <!-- Adding a classic font -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col bg-cover bg-center bg-fixed font-['VT323']" style="background-image: url('./assets/bg.jpeg');">
+    <!-- Dark overlay with dreamy blue tint -->
+    <div class="fixed inset-0 bg-indigo-950/50 backdrop-blur-sm -z-10"></div>
+    
+    <!-- Header component -->
+    <div id="header-component"></div>
+
+    <main class="container mx-auto px-6 py-4 flex-grow flex flex-col">
+        <div class="bg-indigo-950/70 p-6 border-2 border-red-500 shadow-lg h-full flex flex-col">
+            <h1 class="text-4xl font-bold text-red-500 mb-4 tracking-wider text-glow-lg">Welcome to My Amazing Music Page</h1>
+            <p class="text-red-300 text-lg mb-4 text-glow">Where we're from, the birds sing a pretty song and there's always music in the air.</p>
+            
+            <!-- Social Media Links -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
+                <a href="https://www.youtube.com/@clawhammerkurt" target="_blank" class="retro-button flex items-center justify-center gap-2">
+                    <i class="fab fa-youtube text-xl"></i>
+                    YouTube
+                </a>
+                <a href="https://open.spotify.com/intl-tr/artist/14q5dBNP2ejfB5GcjTmLD4" target="_blank" class="retro-button flex items-center justify-center gap-2">
+                    <i class="fab fa-spotify text-xl"></i>
+                    Spotify
+                </a>
+                <a href="https://soundcloud.com/sam-hall-281779364" target="_blank" class="retro-button flex items-center justify-center gap-2">
+                    <i class="fab fa-soundcloud text-xl"></i>
+                    SoundCloud
+                </a>
+                <a href="https://www.tiktok.com/@clawhammersam" target="_blank" class="retro-button flex items-center justify-center gap-2">
+                    <i class="fab fa-tiktok text-xl"></i>
+                    TikTok
+                </a>
+                <a href="https://music.apple.com/tc/artist/sam-hall/1710008658" target="_blank" class="retro-button flex items-center justify-center gap-2">
+                    <i class="fab fa-itunes text-xl"></i>
+                    iTunes
+                </a>
+                <a href="https://www.deezer.com/sv/artist/298733701" target="_blank" class="retro-button flex items-center justify-center gap-2">
+                    <i class="fab fa-deezer text-xl"></i>
+                    Deezer
+                </a>
+            </div>
+
+            <!-- Latest Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow">
+                <!-- Latest Release -->
+                <div class="border border-red-500 p-4 flex flex-col">
+                    <h2 class="text-2xl text-red-500 mb-2 text-glow">Latest Release</h2>
+                    <div class="flex-grow min-h-[380px]">
+                        <iframe 
+                            src="https://open.spotify.com/embed/album/16cSXGPSNmWoW0KyxM4TMg" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            allow="encrypted-media"
+                            class="rounded-xl"
+                            style="min-height: 380px"
+                        ></iframe>
+                    </div>
+                    <div class="mt-2 text-red-300">
+                        <h3 class="text-xl mb-1 text-glow">The Other Line</h3>
+                        <p class="text-sm text-glow-sm">Latest Release • 2025 • 4 songs, 12 min</p>
+                    </div>
+                </div>
+
+                <!-- Latest Blog Post -->
+                <div class="border border-red-500 p-4 flex flex-col">
+                    <h2 class="text-2xl text-red-500 mb-2 text-glow">Latest Blog Post</h2>
+                    <article id="latestBlogPost" class="text-red-300 flex-grow flex flex-col">
+                        <!-- Content will be inserted by JavaScript -->
+                    </article>
+                </div>
+            </div>
+
+            <div class="border border-red-500 p-2">
+                <marquee class="text-red-500 text-glow">🎵 New releases on the way! * * * Hundreds of epic covers! * * * Follow on links above to stay tuned! 🎵</marquee>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer component -->
+    <div id="footer-component"></div>
+
+    <script src="./js/components.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        // Display latest blog post
+        function displayLatestPost() {
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            const container = document.getElementById('latestBlogPost');
+            
+            if (posts.length > 0) {
+                const latestPost = posts[0]; // Get the first post (most recent)
+                container.innerHTML = `
+                    <h3 class="text-xl mb-1 text-glow">${latestPost.title}</h3>
+                    <p class="text-sm text-glow-sm mb-4">${latestPost.date}</p>
+                    <p class="mb-4 text-glow-sm flex-grow">
+                        ${latestPost.content.length > 150 
+                            ? latestPost.content.substring(0, 150) + '...' 
+                            : latestPost.content}
+                    </p>
+                    <a href="blog.html" class="retro-button inline-block self-start">Read More</a>
+                `;
+            } else {
+                container.innerHTML = `
+                    <h3 class="text-xl mb-1 text-glow">Welcome to My Blog</h3>
+                    <p class="mb-4 text-glow-sm flex-grow">No posts yet. Check back soon!</p>
+                    <a href="blog.html" class="retro-button inline-block self-start">Visit Blog</a>
+                `;
+            }
+        }
+
+        // Initialize latest post when page loads
+        document.addEventListener('DOMContentLoaded', displayLatestPost);
+    </script>
+</body>
+</html> 
