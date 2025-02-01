@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+
+# Allow important assets
+Allow: /assets/og-image.jpg
+
 Sitemap: https://clawhammer.xyz/sitemap.xml 

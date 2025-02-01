@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Kurt Clawhammer Blog</title>
+    <link>https://clawhammer.xyz/blog.html</link>
+    <description>Folk punk artist Kurt Clawhammer's blog about music, songwriting, and more.</description>
+    <language>en-us</language>
+    <!-- Blog posts will be dynamically added here -->
+  </channel>
+</rss> 
