@@ -61,9 +61,17 @@
     }
     </script>
 </head>
-<body class="min-h-screen flex flex-col bg-cover bg-center bg-fixed font-['VT323']" style="background-image: url('./assets/bg.jpeg');">
-    <!-- Dark overlay with dreamy blue tint -->
-    <div class="fixed inset-0 bg-indigo-950/50 backdrop-blur-sm -z-10"></div>
+<body class="min-h-screen flex flex-col font-['VT323'] relative">
+    <!-- Replace the existing dark overlay with this enhanced version -->
+    <div class="fixed inset-0 -z-10">
+        <!-- Blurred background image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed blur-sm" 
+             style="background-image: url('./assets/bg.jpeg');">
+        </div>
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-indigo-950/90 via-blue-950/80 to-indigo-900/70 backdrop-blur-sm">
+        </div>
+    </div>
     
     <!-- Header component -->
     <div id="header-component"></div>
@@ -72,12 +80,12 @@
         <article class="bg-indigo-950/70 p-6 border-2 border-red-500 shadow-lg h-full flex flex-col">
             <!-- Header -->
             <header class="mb-6">
-                <div class="grid grid-cols-2">
-                    <div>
-                        <h1 class="text-4xl font-bold text-red-500 tracking-wider text-glow-lg">Kurt Friggin Clawhammer</h1>
-                        <p class="text-red-300 text-lg text-glow">I got banjos and guitars and some wah wah!</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="text-center sm:text-left">
+                        <h1 class="text-3xl sm:text-4xl font-bold text-red-500 tracking-wider text-glow-lg">Kurt Friggin Clawhammer</h1>
+                        <p class="text-red-300 text-base sm:text-lg text-glow">I got banjos and guitars and some wah wah!</p>
                     </div>
-                    <div class="flex justify-end">
+                    <div class="flex justify-center sm:justify-end">
                         <a class="opacity-0" href='https://www.free-counters.org/'>https://www.free-counters.org</a> 
                         <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=21f6806797dbd4c672122416f7ea8814c7ce0742'></script>
                         <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1290494/t/10"></script>
@@ -85,24 +93,24 @@
                 </div>
 
                 <!-- Social Links -->
-                <div class="flex gap-4 mt-4">
-                    <a href="https://www.youtube.com/channel/UCRFROPBLt6kkml5BgAUf7gw" target="_blank" class="retro-button">
-                        <i class="fab fa-youtube"></i> YouTube
+                <div class="flex flex-wrap gap-2 sm:gap-4 mt-4 justify-center sm:justify-start">
+                    <a href="https://www.youtube.com/channel/UCRFROPBLt6kkml5BgAUf7gw" target="_blank" class="retro-button text-sm sm:text-base">
+                        <i class="fab fa-youtube"></i><span class="hidden sm:inline"> YouTube</span>
                     </a>
-                    <a href="https://open.spotify.com/intl-tr/artist/3z1VL7cwYcQZQV7XhdPLpR" target="_blank" class="retro-button">
-                        <i class="fab fa-spotify"></i> Spotify
+                    <a href="https://open.spotify.com/intl-tr/artist/3z1VL7cwYcQZQV7XhdPLpR" target="_blank" class="retro-button text-sm sm:text-base">
+                        <i class="fab fa-spotify"></i><span class="hidden sm:inline"> Spotify</span>
                     </a>
-                    <a href="https://soundcloud.com/sam-hall-281779364" target="_blank" class="retro-button">
-                        <i class="fab fa-soundcloud"></i> SoundCloud
+                    <a href="https://soundcloud.com/sam-hall-281779364" target="_blank" class="retro-button text-sm sm:text-base">
+                        <i class="fab fa-soundcloud"></i><span class="hidden sm:inline"> SoundCloud</span>
                     </a>
-                    <a href="https://www.tiktok.com/@kurtclawhammer" target="_blank" class="retro-button">
-                        <i class="fab fa-tiktok"></i> TikTok
+                    <a href="https://www.tiktok.com/@kurtclawhammer" target="_blank" class="retro-button text-sm sm:text-base">
+                        <i class="fab fa-tiktok"></i><span class="hidden sm:inline"> TikTok</span>
                     </a>
-                    <a href="https://music.apple.com/tr/artist/kurt-the-criterion/1791432103" target="_blank" class="retro-button">
-                        <i class="fab fa-apple"></i> Apple Music
+                    <a href="https://music.apple.com/tr/artist/kurt-the-criterion/1791432103" target="_blank" class="retro-button text-sm sm:text-base">
+                        <i class="fab fa-apple"></i><span class="hidden sm:inline"> Apple Music</span>
                     </a>
-                    <a href="https://www.deezer.com/tr/artist/299632901" target="_blank" class="retro-button">
-                        <i class="fas fa-music"></i> Deezer
+                    <a href="https://www.deezer.com/tr/artist/299632901" target="_blank" class="retro-button text-sm sm:text-base">
+                        <i class="fas fa-music"></i><span class="hidden sm:inline"> Deezer</span>
                     </a>
                 </div>
             </header>
